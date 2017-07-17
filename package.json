@@ -7,22 +7,30 @@
     "start": "phantomjs dist/app.js",
     "dev": "gulp"
   },
-  "keywords": ["crawl", "phantomjs", "phaontomjs-prebuilt", "wanted"],
+  "keywords": [
+    "crawl",
+    "phantomjs",
+    "phaontomjs-prebuilt",
+    "wanted"
+  ],
   "author": {
     "name": "perfectacle",
     "email": "perfectacle@naver.com",
     "url": "https://perfectacle.github.io/"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/perfectacle/wanted-crawler/issues"
   },
   "homepage": "https://github.com/perfectacle/wanted-crawler#readme",
   "dependencies": {
     "babel-eslint": "^7.2.3",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
