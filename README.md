@@ -35,7 +35,7 @@ npx gulp TASK_NAME
 If you don't know how to write upper codes,
 Let's see code in demo directory. (It is korean recruitments site sample.)
 
-### run crawler(phantomjs-prebuilt)
+### third, run crawler(phantomjs-prebuilt)
 ```bash
 npm start
 ```
@@ -47,7 +47,7 @@ run below command. (npm v5.2.0 or higher)
 npx phantomjs ANOTHER_CRAWLER.js
 ```
 
-### run crawler demo
+### etc. run crawler demo
 ```bash
 npm test
 ```
