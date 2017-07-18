@@ -1,7 +1,7 @@
 # keyword crawler
 This is keyword crawler for node.js with phantomjs-prebuilt.  
 This crawler fit to infinite scroll page, not pagination page.  
-[grpah for crawled and morpheme parsing contetns](https://perfectacle.github.io/crawl-temp/)
+[grpah for crawled and morpheme parsing contents](https://perfectacle.github.io/crawl-temp/)
 
 ## installation
 ```bash
