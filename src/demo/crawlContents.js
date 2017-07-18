@@ -1,5 +1,9 @@
-require('babel-polyfill');
-const page = require('webpage').create();
+import 'babel-polyfill';
+import _page from 'webpage';
+import fs from 'fs';
+import {getDate} from './util';
+
+const page = _page.create();
 const URI = 'https://www.wanted.co.kr/wdlist/518/872?referer_id=25580'; // infinite URI
 const WAIT_TIME = 3; // if network is unstable, increase time.
 
@@ -54,6 +58,10 @@ page.open(URI, () => {
       );
     }
 
+    const files = ['role.txt', 'eligibility.txt', 'preference.txt'];
+    const seperateLine = '\n-------------------------------------------------------------\n';
+    const date = getDate(new Date());
+
     // async/await isn't work correctly in array iterate method
     for(let i=0, len=recruitments.length; i<=len; i++) {
       await new Promise(res => {
@@ -68,14 +76,24 @@ page.open(URI, () => {
             const role = /주요업무\s((\s|\S)+(?=\s+자격요건))/.exec(contents);
             const eligibility = /자격요건\s((\s|\S)+(?=\s+우대사항))/.exec(contents);
             const preference = /우대사항\s((\s|\S)+(?=\s+혜택 및 복지))/.exec(contents);
+
             console.log(recruitments[i]);
-            if(role) console.log(role[1]);
-            if(eligibility) console.log(eligibility[1]);
-            if(preference) console.log(preference[1]);
+            if(role) {
+              fs.write(`./dist/demo/${date}/${files[0]}`, role[1]+seperateLine, 'a+');
+              console.log(role[1]);
+            }
+            if(eligibility) {
+              fs.write(`./dist/demo/${date}/${files[1]}`, eligibility[1]+seperateLine, 'a+');
+              console.log(eligibility[1]);
+            }
+            if(preference) {
+              fs.write(`./dist/demo/${date}/${files[2]}`, preference[1]+seperateLine, 'a+');
+              console.log(preference[1]);
+            }
             res();
-          }, WAIT_TIME * 1000);
+          }, WAIT_TIME * 1000); // wait time for page redirect
         });
       });
     }
-  }, WAIT_TIME * 1000);
+  }, WAIT_TIME * 1000); // wait time for infinite scroll
 });
